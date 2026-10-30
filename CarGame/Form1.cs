@@ -14,9 +14,13 @@ namespace CarGame
     {
         //ROAD
         private Timer timerRoad;
+
         private Image roadImage;
+
         private int roadWidth;
+
         private int roadHeight;
+
         private float roadY;
 
         // ROAD SPEED
@@ -34,10 +38,15 @@ namespace CarGame
 
         //CAR SELECTION
         private Image carSpriteSheet;
+
         private Image[] cars;
+
         private Rectangle[] carFrames;
+
         private Image playerCar;
+
         private bool choosingCar = true;
+
         private int hoveredCar = -1;
 
         //ENEMY CARS
@@ -45,11 +54,17 @@ namespace CarGame
 
         //Player
         private int playerWidth = 55;
+
         private int playerHeight = 95;
+
         private int playerX = 0;
+
         private float playerY = 0;
+
         private float normalPlayerY;
+
         private float targetPlayerY;
+
         private float playerForwardSpeed = 2f;
 
 
@@ -393,7 +408,16 @@ namespace CarGame
 
         private void DrawPlayer(Graphics g)
         {
-            g.DrawImage(playerCar, new Rectangle(playerX, 400, playerWidth, playerHeight));
+            g.DrawImage(playerCar, playerX, (int)playerY, playerWidth, playerHeight);
+
+            if (isBraking)
+            {
+                using (Brush brush = new SolidBrush(Color.Red))
+                {
+                    g.FillEllipse(brush, playerX + 10, playerY + playerHeight - 10, 8, 8);
+                    g.FillEllipse(brush, playerX + playerWidth - 18, playerY + playerHeight - 10, 8, 8);
+                }
+            }
         }
 
     }
