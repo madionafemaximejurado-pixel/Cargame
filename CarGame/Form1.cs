@@ -47,7 +47,6 @@ namespace CarGame
             InitializeRoad();
             InitializeCars();
             RegisterEvets();
-
         }
 
         private void InitilizeWindow()
